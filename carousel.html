@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+	<title>JSON Carousel</title>
+	<link href='http://fonts.googleapis.com/css?family=Wendy+One|Libre+Baskerville' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div id="moviebox">
+	<a href="#" id="prev_btn">&laquo;</a>
+	<a href="#" id="next_btn">&raquo;</a>
+	<div id="carousel"></div>
+</div>
+
+<script id="moviestpl" type="text/template">
+	{{#movies}}
+		<div class="speaker">
+			<img src="movie_posters/{{image_url}}" alt="Poster of {{title}}" />
+			<h3>{{title}}</h3>
+			<h4>{{release_year}}</h4>
+			<p>{{description}}<br>
+			Genre: {{genre}}<br>
+			director: {{director}}<br>
+			starring: {{starring}}<br>
+			Year Released: {{release_year}}<br>
+			runtime: {{runtime}}<br>
+			Rated: {{mpaa_rating}}<br>
+			Viewer Rating: {{viewer_rating}} out of {{viewer_count}}<br>
+			</p>
+		</div>
+	{{/movies}}
+</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.cycle/3.03/jquery.cycle.all.min.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+$(function() {
+
+	$.getJSON('data.json', function(data) {
+		var template = $('#moviestpl').html();
+		var html = Mustache.to_html(template, data);
+		$('#carousel').html(html);
+
+		$('#carousel').cycle({
+			fx: 'fade',
+			pause: 1,
+			next: '#next_btn',
+			prev: '#prev_btn',
+			speed: 200,
+			timeout: 10000
+		});
+	}); //getJSON
+	
+}); //function
+
+</script>
+
+</body>
+</html>
