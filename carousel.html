@@ -41,7 +41,7 @@
 
 $(function() {
 
-	$.getJSON('json/movies.json', function(data) {
+	$.getJSON('data/movies.json', function(data) {
 		var template = $('#moviestpl').html();
 		var html = Mustache.to_html(template, data);
 		$('#carousel').html(html);
