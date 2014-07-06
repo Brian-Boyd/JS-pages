@@ -16,3 +16,11 @@ From tutorial at Lynda.com titled "JavaScript and AJAX".
 ** Reference Links: **
 
 * [JavaScript and AJAX](http://www.lynda.com/Developer-tutorials/JavaScript-and-AJAX/114900-2.html)
+
+### ziptastic.html
+
+From tutorial at Lynda.com titled "jQuery Data with AJAX".
+
+** Reference Links: **
+
+* [jQuery Data with AJAX](http://www.lynda.com/jQuery-tutorials/jQuery-Data-AJAX/150163-2.html)
